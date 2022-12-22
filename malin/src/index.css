@@ -8,12 +8,16 @@ body {
     height: 100vh;
     background: rgb(9, 23, 34);
     background: linear-gradient(180deg, rgba(9, 23, 34, 1) 0%, rgba(23, 58, 79, 1) 100%);
-
 }
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@font-face {
+    font-family: ChristmasFont;
+    src: url("./fonts/christmas.otf") format("opentype");
 }
 
 .snow {

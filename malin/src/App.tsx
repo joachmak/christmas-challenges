@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import TypingTest from "./domain/TypingTest";
-import Cookies from "universal-cookie";
+import Countdown from "./domain/Countdown";
+import { getChristmasDate } from "./utils/timeUtils";
 
 function App() {
-    const cookies = new Cookies()
-    console.log(cookies.get("slemt_barn"))
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const christmasDate = getChristmasDate();
+
+  useEffect(() => {
+    const interval = setInterval(() => setCurrentDate(new Date()), 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <div className="App">
-      <TypingTest />
+      {currentDate < christmasDate ? <Countdown /> : <TypingTest />}
     </div>
   );
 }
